@@ -30,8 +30,17 @@ getHumanChoice();
 //if same display "Rock beats paper "
 //increment
 
+function playGame(){
+
+    for(var i=1; i<=5; i++){
+        playRound(i);
+        console.log("round" + i);
+    }
+    
 let humanScore = 0; let computerScore = 0;
+
 function playRound(humanChoice, computerChoice){
+    
     if(humanChoice == "rock" && computerChoice == "scissors"){
         console.log("rock beats paper");
         humanScore++;
@@ -60,5 +69,9 @@ function playRound(humanChoice, computerChoice){
     }
 
 }
-
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 playRound(humanSelection, computerSelection);
+
+
+}
