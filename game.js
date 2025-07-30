@@ -16,4 +16,10 @@ function getComputerChoice(){
     }
       console.log(weapon);
 }
-getComputerChoice();
+getComputerChoice(); //invokes the fucntion
+
+function getHumanChoice(){
+    let input = prompt("Rock, paper and scissors? (lowercase only): ");
+    console.log(input.toLowerCase());
+}
+getHumanChoice();
