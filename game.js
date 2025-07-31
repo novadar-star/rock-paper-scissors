@@ -1,3 +1,5 @@
+
+
 function getComputerChoice(){
     let index =  Math.floor(Math.random() * 3);
     let weapon = "";
@@ -19,6 +21,8 @@ function getComputerChoice(){
 let computerChoice = getComputerChoice(); //invokes the fucntion
 console.log(computerChoice);
 
+
+
 function getHumanChoice(){
     let input = prompt("rock, paper and scissors? ");
     if (input === null ){ //string empty
@@ -32,52 +36,70 @@ let humanChoice = getHumanChoice();
 console.log(humanChoice);
 
 
-    function playGame(){ //invokes function 5times
-         for(i=1; i<=5;i++){
-         playRound(humanChoice, computerChoice);
-         console.log("Round" + i);
-        }
-    }
-   
-   //doenst display the result..doesnt counter
+      
+
 function playRound(humanChoice, computerChoice){
     let humanScore=0;
     let computerScore = 0;
     let text = " ";
+
     if(humanChoice === "rock" && computerChoice === "scissors"){
-        text = "rock beats scissors"; //not displaying   
+        text = "U WIN rock beats scissors"; //not displaying   
         humanScore++;
      }
     else if(humanChoice === "paper" && computerChoice === "rock"){
-        text = "paper beats rock";
+        text = "U WIN paper beats rock";
         humanScore++;
     }
     else if(humanChoice === "scissors" && computerChoice ==="paper" ){
-        text= "scissors beats paper";
+        text= "U WIN scissors beats paper";
         humanScore++;
     }
     // rock
     else if(computerChoice === "rock" && humanChoice === "scissors"){
-        text = "rock beats scissors";
+        text = "U LOSE rock beats scissors";
         computerScore++;
     }
     else if(computerChoice === "paper" && humanChoice === "rock"){
-        text = "paper beats rock";
+        text = "U LOSE paper beats rock";
         computerScore++;
     }
     else if (computerChoice === "scissors" && humanChoice === "paper"){
-        text = "scissors beats paper";
+        text = "U LOSE scissors beats paper";
         computerScore++;
     }
     else { //if all are tie
-        text = "Its a tie..no one scored";
+        text = "Same weapons!";
     }
+   
+    console.log("Human Score: " + humanScore + " Computer Score:" + computerScore);
     console.log(text);
 }
-playGame();
- /*
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
-*/
 
+
+playRound();
+
+
+function playGame(humanChoice, computerChoice){ //invokes function 5times
+
+    for(i=1; i<=5;i++){
+    computerChoice;
+    getHumanChoice(); //calls for 5 times but doesnt retain vlaue
+    playRound(humanChoice, computerChoice);  //NEED TO RESET CHOICES AND CALL FUNCTION ITSELF W/O PARAMETER BUT
+ }
+}
+    playGame();
+    
+
+function winner(humanScore, computerScore){
+         if(humanScore === computerScore){
+            console.log("human and computer TIE!");
+        }
+        else if(humanScore > computerScore){
+            console.log("human won!");
+        }
+        else{
+            console.log("computer won!");
+        }
+}
+winner();
