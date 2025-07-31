@@ -32,16 +32,18 @@ let humanChoice = getHumanChoice();
 console.log(humanChoice);
 
 
-
-
-    for(i=1; i<=5;i++){
-       playRound(humanChoice, computerChoice)
+    function playGame(){ //invokes function 5times
+         for(i=1; i<=5;i++){
+         playRound(humanChoice, computerChoice);
+         console.log("Round" + i);
+        }
     }
+   
    //doenst display the result..doesnt counter
- function playRound(humanChoice, computerChoice){
-     let humanScore = 0; 
-     let computerScore = 0;
-     let text = " ";
+function playRound(humanChoice, computerChoice){
+    let humanScore=0;
+    let computerScore = 0;
+    let text = " ";
     if(humanChoice === "rock" && computerChoice === "scissors"){
         text = "rock beats scissors"; //not displaying   
         humanScore++;
@@ -72,7 +74,7 @@ console.log(humanChoice);
     }
     console.log(text);
 }
-
+playGame();
  /*
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
