@@ -16,7 +16,7 @@ function getComputerChoice(){
     }
       console.log(weapon);
 }
-getComputerChoice(); //invokes the fucntion
+let computerChoice = getComputerChoice(); //invokes the fucntion
 
 function getHumanChoice(){
     let input = prompt("Rock, paper and scissors? (lowercase only): ");
@@ -25,12 +25,10 @@ function getHumanChoice(){
         return 0;
     }
     else{
-      
         console.log(input.toLowerCase());
-
     }
 }
-getHumanChoice();
+let humanChoice = getHumanChoice();
 
 
 //tracker of human and computer score
@@ -52,7 +50,7 @@ getHumanChoice();
                 humanScore++;
             }
             // rock
-            else if(computerChoice=== "rock" && humanChoice === "scissors"){
+            else if(computerChoice === "rock" && humanChoice === "scissors"){
                 console.log("rock beats paper");
                 computerScore++;
             }
@@ -65,7 +63,7 @@ getHumanChoice();
                 console.log("scissors beats paper");
                 computerScore++;
             }
-            else {
+            else { //automatically goes here
                 console.log("Its a tie..no one scored")
             }
             }
