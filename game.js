@@ -14,84 +14,68 @@ function getComputerChoice(){
         default:
             break;
     }
-      console.log(weapon);
+      return weapon.toLowerCase();
 }
 let computerChoice = getComputerChoice(); //invokes the fucntion
+console.log(computerChoice);
 
 function getHumanChoice(){
-    let input = prompt("Rock, paper and scissors? (lowercase only): ");
+    let input = prompt("rock, paper and scissors? ");
     if (input === null ){ //string empty
-        alert("enter a word please!");
-        return 0;
+       alert("enter a word please!");
     }
     else{
-        console.log(input.toLowerCase());
+        return input.toLowerCase(); 
     }
 }
 let humanChoice = getHumanChoice();
+console.log(humanChoice);
 
 
-//tracker of human and computer score
-//compare the strings if the same
-//if same display "Rock beats paper "
-//increment
-  function playRound(humanChoice, computerChoice){
-     let humanScore = 0; let computerScore = 0;
-            if(humanChoice === "rock" && computerChoice === "scissors"){
-                console.log("rock beats paper"); //not displaying   
-                humanScore++;
-            }
-            else if(humanChoice === "paper" && computerChoice === "rock"){
-                console.log("paper beats rock");
-                humanScore ++
-            }
-            else if(humanChoice === "scissors" && computerChoice ==="paper" ){
-                console.log("scissors beats paper");
-                humanScore++;
-            }
-            // rock
-            else if(computerChoice === "rock" && humanChoice === "scissors"){
-                console.log("rock beats paper");
-                computerScore++;
-            }
-            else if(computerChoice === "paper" && humanChoice === "rock"){
-                console.log("paper beats rock");
-                computerScore++;
 
-            }
-            else if (computerChoice === "scissors" && humanChoice === "paper"){
-                console.log("scissors beats paper");
-                computerScore++;
-            }
-            else { //automatically goes here
-                console.log("Its a tie..no one scored")
-            }
-            }
-let winner_round = playRound();
 
-function playGame(){
-
-    for(let i=0; i<5; i++){
-       console.log(winner_round + i);
-        
+    for(i=1; i<=5;i++){
+       playRound(humanChoice, computerChoice)
+    }
+   //doenst display the result..doesnt counter
+ function playRound(humanChoice, computerChoice){
+     let humanScore = 0; 
+     let computerScore = 0;
+     let text = " ";
+    if(humanChoice === "rock" && computerChoice === "scissors"){
+        text = "rock beats scissors"; //not displaying   
+        humanScore++;
+     }
+    else if(humanChoice === "paper" && computerChoice === "rock"){
+        text = "paper beats rock";
+        humanScore++;
+    }
+    else if(humanChoice === "scissors" && computerChoice ==="paper" ){
+        text= "scissors beats paper";
+        humanScore++;
+    }
+    // rock
+    else if(computerChoice === "rock" && humanChoice === "scissors"){
+        text = "rock beats scissors";
+        computerScore++;
+    }
+    else if(computerChoice === "paper" && humanChoice === "rock"){
+        text = "paper beats rock";
+        computerScore++;
+    }
+    else if (computerChoice === "scissors" && humanChoice === "paper"){
+        text = "scissors beats paper";
+        computerScore++;
+    }
+    else { //if all are tie
+        text = "Its a tie..no one scored";
+    }
+    console.log(text);
 }
-    
-    //score
-    if(humanScore == computerScore){
-        console.log("Tie!");
-    }
-    else if(humanScore > computerScore){
-        console.log("human won!");
-    }
-    else{
-        console.log("computer won!");
-    }
 
-
-
+ /*
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 playRound(humanSelection, computerSelection);
+*/
 
-
-}
