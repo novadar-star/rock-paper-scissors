@@ -18,7 +18,8 @@ function getComputerChoice(){
     }
       return weapon.toLowerCase();
 }
-let computerChoice = getComputerChoice(); //invokes the fucntion
+ //invokes the fucntion
+let computerChoice = getComputerChoice();
 console.log(computerChoice);
 
 
@@ -32,13 +33,14 @@ function getHumanChoice(){
         return input.toLowerCase(); 
     }
 }
+
 let humanChoice = getHumanChoice();
 console.log(humanChoice);
 
 
       
 
-function playRound(humanChoice, computerChoice){
+function playRound(){
     let humanScore=0;
     let computerScore = 0;
     let text = " ";
@@ -80,18 +82,18 @@ function playRound(humanChoice, computerChoice){
 playRound();
 
 
-function playGame(humanChoice, computerChoice){ //invokes function 5times
+function playGame(){ //invokes function 5times
 
     for(i=1; i<=5;i++){
-    computerChoice;
-    getHumanChoice(); //calls for 5 times but doesnt retain vlaue
-    playRound(humanChoice, computerChoice);  //NEED TO RESET CHOICES AND CALL FUNCTION ITSELF W/O PARAMETER BUT
+    playRound();
+    getComputerChoice();
+    getHumanChoice(); 
  }
 }
     playGame();
     
 
-function winner(humanScore, computerScore){
+function winner(){
          if(humanScore === computerScore){
             console.log("human and computer TIE!");
         }
@@ -103,3 +105,4 @@ function winner(humanScore, computerScore){
         }
 }
 winner();
+
