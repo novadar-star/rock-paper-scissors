@@ -19,6 +19,8 @@ function getComputerChoice(){
       return weapon.toLowerCase();
 }
 
+let computerChoice = getcomputerChoice();
+console.log(computerChoice);
 
 
 function getHumanChoice(){
