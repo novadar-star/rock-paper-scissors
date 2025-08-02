@@ -18,9 +18,6 @@ function getComputerChoice(){
     }
       return weapon.toLowerCase();
 }
- //invokes the fucntion
-let computerChoice = getComputerChoice();
-console.log(computerChoice);
 
 
 
@@ -39,61 +36,63 @@ console.log(humanChoice);
 
 
       
-
+  let humanScore=0;
+  let computerScore = 0;
 function playRound(){
-    let humanScore=0;
-    let computerScore = 0;
-    let text = " ";
+    computerChoice = getComputerChoice();
+    humanChoice = getHumanChoice();
+
 
     if(humanChoice === "rock" && computerChoice === "scissors"){
-        text = "U WIN rock beats scissors"; //not displaying   
+       //not displaying   
         humanScore++;
+        return "U WIN rock beats scissors"; 
      }
     else if(humanChoice === "paper" && computerChoice === "rock"){
-        text = "U WIN paper beats rock";
+       
         humanScore++;
+         return "U WIN paper beats rock";
     }
     else if(humanChoice === "scissors" && computerChoice ==="paper" ){
-        text= "U WIN scissors beats paper";
         humanScore++;
+          return "U WIN scissors beats paper";
     }
     // rock
     else if(computerChoice === "rock" && humanChoice === "scissors"){
-        text = "U LOSE rock beats scissors";
+     
         computerScore++;
+          return "U LOSE rock beats scissors";
     }
     else if(computerChoice === "paper" && humanChoice === "rock"){
-        text = "U LOSE paper beats rock";
+    
         computerScore++;
+          return "U LOSE paper beats rock";
     }
     else if (computerChoice === "scissors" && humanChoice === "paper"){
-        text = "U LOSE scissors beats paper";
+   
         computerScore++;
+         return "U LOSE scissors beats paper";
     }
     else { //if all are tie
-        text = "Same weapons!";
+        computerScore++;
+        humanScore
+        return "tie!";
     }
    
-    console.log("Human Score: " + humanScore + " Computer Score:" + computerScore);
-    console.log(text);
 }
-
-
-
-
 
 function playGame(){ //invokes function 5times
-
-    for(i=1; i<=5;i++){
-    playRound(humanChoice, computerChoice);
-    return humanChoice;
-    
- }
+    for(let i=0; i<5; i++){
+        console.log(playRound());
+        console.log(`Your score: ${humanChoice}`);
+        console.log(`Computer Score: ${computerScore}`);
+    }
+  winner();
 }
-    playGame();
+ 
     
 
-function winner(humanScore,computerScore){
+function winner(){
          if(humanScore === computerScore){
             console.log("human and computer TIE!");
         }
@@ -104,5 +103,6 @@ function winner(humanScore,computerScore){
             console.log("computer won!");
         }
 }
-winner();
+
+playGame();
 
