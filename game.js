@@ -79,21 +79,21 @@ function playRound(){
 }
 
 
-playRound();
+
 
 
 function playGame(){ //invokes function 5times
 
     for(i=1; i<=5;i++){
-    playRound();
-    getComputerChoice();
-    getHumanChoice(); 
+    playRound(humanChoice, computerChoice);
+    return humanChoice;
+    
  }
 }
     playGame();
     
 
-function winner(){
+function winner(humanScore,computerScore){
          if(humanScore === computerScore){
             console.log("human and computer TIE!");
         }
