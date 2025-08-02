@@ -1,5 +1,4 @@
 
-
 function getComputerChoice(){
     let index =  Math.floor(Math.random() * 3);
     let weapon = "";
@@ -16,12 +15,9 @@ function getComputerChoice(){
         default:
             break;
     }
-      return weapon.toLowerCase();
+    console.log(weapon);
+    return weapon.toLowerCase();
 }
-
-let computerChoice = getcomputerChoice();
-console.log(computerChoice);
-
 
 function getHumanChoice(){
     let input = prompt("rock, paper and scissors? ");
@@ -29,17 +25,14 @@ function getHumanChoice(){
        alert("enter a word please!");
     }
     else{
+        console.log(input.toLowerCase());
         return input.toLowerCase(); 
     }
+  
 }
-
-let humanChoice = getHumanChoice();
-console.log(humanChoice);
-
-
-      
   let humanScore=0;
   let computerScore = 0;
+
 function playRound(){
     computerChoice = getComputerChoice();
     humanChoice = getHumanChoice();
@@ -77,7 +70,7 @@ function playRound(){
     }
     else { //if all are tie
         computerScore++;
-        humanScore
+        humanScore++;
         return "tie!";
     }
    
@@ -85,9 +78,10 @@ function playRound(){
 
 function playGame(){ //invokes function 5times
     for(let i=0; i<5; i++){
+        console.log(`Round 1: ${i}`);
         console.log(playRound());
-        console.log(`Your score: ${humanChoice}`);
-        console.log(`Computer Score: ${computerScore}`);
+        console.log(`Human choice: ${humanChoice} | score: ${humanScore}`);
+        console.log(`Computer choice: ${computerChoice} | score: ${computerScore}`);
     }
   winner();
 }
@@ -96,13 +90,13 @@ function playGame(){ //invokes function 5times
 
 function winner(){
          if(humanScore === computerScore){
-            console.log("human and computer TIE!");
+            console.log("HUMAN AND COMPUTER TIE!");
         }
         else if(humanScore > computerScore){
-            console.log("human won!");
+            console.log("HUMAN WON!");
         }
         else{
-            console.log("computer won!");
+            console.log("COMPUTER WON!");
         }
 }
 

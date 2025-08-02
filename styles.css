@@ -4,9 +4,21 @@
 
 body {
       background-color: plum;
+      text-align: center;
 }
 
 h1 {
   color:blanchedalmond;
   text-align: center;
+  font-size: 50px;
+}
+h1{
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+p {
+  font-weight: 600;
+  font-size: 25px;  
 }
