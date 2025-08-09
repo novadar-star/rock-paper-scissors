@@ -22,3 +22,23 @@ p {
   font-weight: 600;
   font-size: 25px;  
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin:100px;
+  gap: 0.5em;
+}
+
+button {
+  padding: 40px;
+  border-radius: 10px;
+  background-color: rgb(243, 221, 192);
+  border:1px solid black;
+  cursor: pointer;
+
+}
+
+#scissors{
+padding: 40px 30px;
+}

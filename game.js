@@ -15,7 +15,7 @@ function getComputerChoice(){
         default:
             break;
     }
-    console.log(weapon);
+   
     return weapon.toLowerCase();
 }
 
@@ -25,7 +25,7 @@ function getHumanChoice(){
        alert("enter a word please!");
     }
     else{
-        console.log(input.toLowerCase());
+     
         return input.toLowerCase(); 
     }
   
@@ -36,7 +36,6 @@ function getHumanChoice(){
 function playRound(){
     computerChoice = getComputerChoice();
     humanChoice = getHumanChoice();
-
 
     if(humanChoice === "rock" && computerChoice === "scissors"){
        //not displaying   
@@ -77,12 +76,14 @@ function playRound(){
 }
 
 function playGame(){ //invokes function 5times
-    for(let i=0; i<5; i++){
-        console.log(`Round 1: ${i}`);
+   
+   // for(let i=1; i<=5; i++){
+      //  console.log(`Round ${i}`);
         console.log(playRound());
         console.log(`Human choice: ${humanChoice} | score: ${humanScore}`);
         console.log(`Computer choice: ${computerChoice} | score: ${computerScore}`);
-    }
+        console.log("========================");
+   // }
   winner();
 }
  
@@ -101,4 +102,12 @@ function winner(){
 }
 
 playGame();
+
+
+const btnRock = document.getElementById("rock");
+const btnPaper = document.getElementById("paper");
+const btnScissors = document.getElementById("scissors");
+
+
+btnRock.addEventListener("click", playRound);
 
