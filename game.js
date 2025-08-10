@@ -1,42 +1,23 @@
 
 function getComputerChoice(){
     let index =  Math.floor(Math.random() * 3);
-    let weapon = "";
     switch(index){
         case 0:
-            weapon = "rock";
-            break;
+           return "rock";
+           break;
         case 1:
-            weapon = "paper";
+            return "paper";
             break;
         case 2:
-            weapon = "scissors";
-            break;
-        default:
-            break;
+           return "scissors";
+           break;
+  
     }
    
-    return weapon.toLowerCase();
 }
 
-function getHumanChoice(){
-    let input = prompt("rock, paper and scissors? ");
-    if (input === null ){ //string empty
-       alert("enter a word please!");
-    }
-    else{
-     
-        return input.toLowerCase(); 
-    }
-  
-}
-  let humanScore=0;
-  let computerScore = 0;
 
-function playRound(){
-    computerChoice = getComputerChoice();
-    humanChoice = getHumanChoice();
-
+function playRound(humanChoice, computerChoice){
     if(humanChoice === "rock" && computerChoice === "scissors"){
        //not displaying   
         humanScore++;
@@ -45,7 +26,7 @@ function playRound(){
     else if(humanChoice === "paper" && computerChoice === "rock"){
        
         humanScore++;
-         return "U WIN paper beats rock";
+        return "U WIN paper beats rock";
     }
     else if(humanChoice === "scissors" && computerChoice ==="paper" ){
         humanScore++;
@@ -75,6 +56,7 @@ function playRound(){
    
 }
 
+/*
 function playGame(){ //invokes function 5times
    
    // for(let i=1; i<=5; i++){
@@ -86,7 +68,7 @@ function playGame(){ //invokes function 5times
    // }
   winner();
 }
- 
+ */
     
 
 function winner(){
@@ -101,13 +83,23 @@ function winner(){
         }
 }
 
-playGame();
+//playGame();
 
 
-const btnRock = document.getElementById("rock");
-const btnPaper = document.getElementById("paper");
-const btnScissors = document.getElementById("scissors");
+const btnRock = document.querySelector(" .rock");
+const btnPaper = document.querySelector(" .paper");
+const btnScissors = document.querySelector(" .scissors");
+const message = document.querySelector("p");
+let humanScore=0;
+let computerScore = 0;
+let rounds = "";
+let roundcount = 0;
 
 
-btnRock.addEventListener("click", playRound);
-
+btnRock.addEventListener("click", ()=>{
+    const computerChoice = getComputerChoice();
+    round = playRound("rock", computerChoice);
+    message.textContent  = `Human choice: ${humanChoice} | score: ${humanScore}
+    Computer choice: ${computerChoice} | score: ${computerScore}`;
+    roundcount++;
+})

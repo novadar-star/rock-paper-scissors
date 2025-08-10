@@ -1,18 +1,18 @@
-**{
+*{
     box-sizing:border-box;
 }
 
 body {
       background-color: plum;
       text-align: center;
+  
+   
 }
 
 h1 {
   color:blanchedalmond;
   text-align: center;
   font-size: 50px;
-}
-h1{
   display: flex;
   justify-content: center;
   margin-top: 200px;
@@ -27,11 +27,11 @@ p {
   display: flex;
   justify-content: center;
   margin:100px;
-  gap: 0.5em;
+  gap: 3em;
 }
 
 button {
-  padding: 40px;
+  padding: 30px;
   border-radius: 10px;
   background-color: rgb(243, 221, 192);
   border:1px solid black;
@@ -40,5 +40,29 @@ button {
 }
 
 #scissors{
-padding: 40px 30px;
+padding: 30px 30px;
+}
+
+img {
+  width:70px;
+  height: auto;
+    background:none;
+}
+
+.icon {
+    display: flex;
+  justify-content: space-evenly;
+}
+#steve {
+  width: 250px;
+  height: auto;
+
+}
+#zombie{
+  width: 300px;
+  height: auto;
+}
+
+#label {
+  font-size: small;
 }
