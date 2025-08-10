@@ -120,12 +120,14 @@ function pressBtns(e) {
         return "rock";
         
         case "paper":
+        humanChoice.textContent = "paper";
         cont.appendChild(humanChoice);   
         round = playRound("paper", computerChoice);
         roundcount++;
         return "paper";
 
         case "scissors":
+         humanChoice.textContent = "scissors";
         cont.appendChild(humanChoice);   
         round = playRound("scissors", computerChoice);
         roundcount++;
