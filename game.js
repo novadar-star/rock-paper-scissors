@@ -21,20 +21,17 @@ function getComputerChoice(){
           computerChoice.textContent =  "scissors";
           cont.appendChild(computerChoice);     
           return "scissors"; 
-          
+         
     }
    
 }
 
-
 function playRound(humanChoice, computerChoice){
     if(humanChoice === "rock" && computerChoice === "scissors"){
-       //not displaying   
         humanScore++;
-        return "U WIN rock beats scissors"; 
+        return "U WIN this round: rock beats scissors"; 
      }
     else if(humanChoice === "paper" && computerChoice === "rock"){
-       
         humanScore++;
         return "U WIN paper beats rock";
     }
@@ -58,7 +55,7 @@ function playRound(humanChoice, computerChoice){
         computerScore++;
          return "U LOSE scissors beats paper";
     }
-    else { //if all are tie
+    else { 
         computerScore++;
         humanScore++;
         return "tie!";
@@ -97,33 +94,46 @@ function winner(){
 //playGame();
 
 
-const message = document.querySelector("p");
 let humanScore=0;
 let computerScore = 0;
-let rounds = "";
+let round = "";
 let roundcount = 0;
 
-const btnChoice = document.querySelector(".container");
-const btn = document.querySelector("button");
+const btnChoice = document.querySelectorAll("button");
 
-btnChoice.addEventListener("click",(e) => {
+for(let indexx = 0; indexx< btnChoice.length;indexx+=1){
+btnChoice[indexx].addEventListener("click", pressBtns);
+function pressBtns(e) {
     let target = e.target;
+    const cont = document.querySelector(".steve");
+    const humanChoice = document.createElement("h4");
+    humanChoice.classList.add("humanChoice");
+    const computerChoice = getComputerChoice();
+
 
     switch(target.id){
         case "rock":
-          const cont = document.querySelector(".rock-container");
-          const humanChoice = document.createElement("h4");
-          humanChoice.classList.add("humanChoice");
-          humanChoice.textContent = "rock";
-          cont.appendChild(humanChoice);   
-          
-         const computerChoice = getComputerChoice();
-         round = playRound("rock", computerChoice);
-         roundcount++;
-          
-          
+        humanChoice.textContent = "rock";
+        cont.appendChild(humanChoice);   
+        round = playRound("rock", computerChoice);
+        roundcount++;
+        return "rock";
+        
+        case "paper":
+        cont.appendChild(humanChoice);   
+        round = playRound("paper", computerChoice);
+        roundcount++;
+        return "paper";
+
+        case "scissors":
+        cont.appendChild(humanChoice);   
+        round = playRound("scissors", computerChoice);
+        roundcount++;
+        return "scissors";
+  
     }
-    console.log(target.id);
-
-
-} )
+    console.log(round);
+} 
+}
+//create an p element under steve similar to zombie so dun ilalagay 
+//pinindot mong option
