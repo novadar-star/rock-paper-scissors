@@ -1,27 +1,31 @@
 
 function getComputerChoice(){
     let index =  Math.floor(Math.random() * 3);
-     const cont = document.querySelector(".zombie");
-     const computerChoice = document.createElement("p");
+    const cont = document.querySelector(".zombie");
+    const computerChoice = document.createElement("p");
+    let weapon = "";
+
     switch(index){
-        
         case 0:
           computerChoice.classList.add("computerChoice");
           computerChoice.textContent =  "rock";
-          cont.appendChild(computerChoice);
+         cont.appendChild(computerChoice);            
+          weapon = "rock";
           break;
         case 1:
           computerChoice.classList.add("computerChoice");
           computerChoice.textContent =  "paper";
-          cont.appendChild(computerChoice);
-          break;
-            
+          cont.appendChild(computerChoice);      
+           weapon = "paper";
+          break;    
         case 2:
-           return "scissors";
-           break;
-  
+          computerChoice.classList.add("computerChoice");
+          computerChoice.textContent =  "scissors";
+          cont.appendChild(computerChoice);      
+           weapon = "scissors";
+          break;
     }
-    console.log(index);
+    console.log(weapon);
    
 }
 
@@ -121,8 +125,11 @@ btnChoice.addEventListener("click",(e) => {
           const humanChoice = document.createElement("p");
           humanChoice.classList.add("humanChoice");
           humanChoice.textContent = "rock";
-          cont.appendChild(humanChoice);      
+          cont.appendChild(humanChoice);    
+          
+          
     }
+    console.log(target.id);
 
 
 } )
