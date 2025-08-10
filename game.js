@@ -2,30 +2,27 @@
 function getComputerChoice(){
     let index =  Math.floor(Math.random() * 3);
     const cont = document.querySelector(".zombie");
-    const computerChoice = document.createElement("p");
-    let weapon = "";
+    const computerChoice = document.createElement("h4");
+   
 
     switch(index){
         case 0:
           computerChoice.classList.add("computerChoice");
           computerChoice.textContent =  "rock";
-         cont.appendChild(computerChoice);            
-          weapon = "rock";
-          break;
+         cont.appendChild(computerChoice);  
+         return "rock";
         case 1:
           computerChoice.classList.add("computerChoice");
           computerChoice.textContent =  "paper";
-          cont.appendChild(computerChoice);      
-           weapon = "paper";
-          break;    
+          cont.appendChild(computerChoice);    
+          return "paper";  
         case 2:
           computerChoice.classList.add("computerChoice");
           computerChoice.textContent =  "scissors";
-          cont.appendChild(computerChoice);      
-           weapon = "scissors";
-          break;
+          cont.appendChild(computerChoice);     
+          return "scissors"; 
+          
     }
-    console.log(weapon);
    
 }
 
@@ -109,23 +106,20 @@ let roundcount = 0;
 const btnChoice = document.querySelector(".container");
 const btn = document.querySelector("button");
 
-btn.addEventListener("click", (e) => {
-    e.target.style.background = "#C28340";
-     const computerChoice = getComputerChoice();
-    round = playRound("rock", computerChoice);
-    roundcount++;
-});
-
 btnChoice.addEventListener("click",(e) => {
     let target = e.target;
 
     switch(target.id){
         case "rock":
           const cont = document.querySelector(".rock-container");
-          const humanChoice = document.createElement("p");
+          const humanChoice = document.createElement("h4");
           humanChoice.classList.add("humanChoice");
           humanChoice.textContent = "rock";
-          cont.appendChild(humanChoice);    
+          cont.appendChild(humanChoice);   
+          
+         const computerChoice = getComputerChoice();
+         round = playRound("rock", computerChoice);
+         roundcount++;
           
           
     }
