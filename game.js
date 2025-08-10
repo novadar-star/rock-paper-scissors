@@ -1,18 +1,27 @@
 
 function getComputerChoice(){
     let index =  Math.floor(Math.random() * 3);
+     const cont = document.querySelector(".zombie");
+     const computerChoice = document.createElement("p");
     switch(index){
+        
         case 0:
-           return "rock";
-           break;
+          computerChoice.classList.add("computerChoice");
+          computerChoice.textContent =  "rock";
+          cont.appendChild(computerChoice);
+          break;
         case 1:
-            return "paper";
-            break;
+          computerChoice.classList.add("computerChoice");
+          computerChoice.textContent =  "paper";
+          cont.appendChild(computerChoice);
+          break;
+            
         case 2:
            return "scissors";
            break;
   
     }
+    console.log(index);
    
 }
 
@@ -70,7 +79,7 @@ function playGame(){ //invokes function 5times
 }
  */
     
-
+/*
 function winner(){
          if(humanScore === computerScore){
             console.log("HUMAN AND COMPUTER TIE!");
@@ -83,23 +92,37 @@ function winner(){
         }
 }
 
+*/
 //playGame();
 
 
-const btnRock = document.querySelector(" .rock");
-const btnPaper = document.querySelector(" .paper");
-const btnScissors = document.querySelector(" .scissors");
 const message = document.querySelector("p");
 let humanScore=0;
 let computerScore = 0;
 let rounds = "";
 let roundcount = 0;
 
+const btnChoice = document.querySelector(".container");
+const btn = document.querySelector("button");
 
-btnRock.addEventListener("click", ()=>{
-    const computerChoice = getComputerChoice();
+btn.addEventListener("click", (e) => {
+    e.target.style.background = "#C28340";
+     const computerChoice = getComputerChoice();
     round = playRound("rock", computerChoice);
-    message.textContent  = `Human choice: ${humanChoice} | score: ${humanScore}
-    Computer choice: ${computerChoice} | score: ${computerScore}`;
     roundcount++;
-})
+});
+
+btnChoice.addEventListener("click",(e) => {
+    let target = e.target;
+
+    switch(target.id){
+        case "rock":
+          const cont = document.querySelector(".rock-container");
+          const humanChoice = document.createElement("p");
+          humanChoice.classList.add("humanChoice");
+          humanChoice.textContent = "rock";
+          cont.appendChild(humanChoice);      
+    }
+
+
+} )

@@ -1,8 +1,12 @@
 *{
     box-sizing:border-box;
-    
+
 }
 
+@font-face {
+  font-family: "Minecraft-Ten";
+  src: url(MinecraftTen-VGORe.ttf);
+}
 body {
       background-color: #8FCA5C;
       text-align: center;
@@ -11,6 +15,7 @@ body {
 }
 
 h2 {
+
   color: #61371F;
   text-align: center;
   font-size: 30px;
