@@ -165,7 +165,8 @@ optionChoices.forEach((image1, index1) => {
         const zombieImg = ["rock.jpg", "paper.jpg", "scissors.jpg"]
         zombieResult.src = zombieImg[index];
         
-
+        let human = ["rock", "paper", "scissors"][index];
+        console.log(human);
 
     });
 });
