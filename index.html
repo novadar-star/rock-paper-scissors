@@ -6,45 +6,51 @@
           <link rel="icon" type="favicon.png" href="favicon.png">
         <link rel="stylesheet" href="styles.css">
         <title>Rock Paper and Scissors</title>
-
-   
-    </head>
-    <body>
-    <div class = "outer-container">
         <h2>ROCK PAPER AND SCISSORS</h2>
-      
         <p>Pick a choice!</p>
-        <div class = "icon">       
+    </head>
+
+    <body>
+    <div class="outer-container">
+        <div class ="icon">       
            <div class="steve">
-                <h3 class="score">SCORE: </h3>
+                <h3 id="human-score">SCORE: </h3>
                 <h3>STEVE</h3>
-                <img id="steve" src = "steve.jpg">
+                <img src = "steve.jpg">
            </div>
 
             <div class="zombie">
-                <h3 class="score">SCORE: </h3>
+                <h3 id="zombie-score">SCORE: </h3>
                 <h3>ZOMBIE</h3>
-                <img id="zombie" src = "zombie.jpg">
+                <img src = "zombie.jpg">
             </div>
         </div>
+         <div class="result">Description</div>
+
+
+
 
         <div class="container">
-        <div class="rock-container">
-            <button  id="rock"> <img src="rock.jpg"><p id="label">ROCK</p></button>
+    
+            <button class="image"> 
+                <img src="rock.jpg">
+                <p  id="label">ROCK</p>
+            </button>
+       
+            <button class="image"> 
+                <img src="paper.jpg">
+                <p id="label">PAPER</p>
+            </button>
+     
+            <button class="image">
+                 <img src="scissors.jpg">
+                 <p id="label">SCISSORS</p>
+                </button>
+       
         </div>
 
-        <div class="paper-container">
-            <button id="paper"> <img src="paper.jpg"><p id="label">PAPER</p></button>
-
-        </div>
-
-        <div class="scissors-container">
-            <button id="scissors"> <img src="scissors.jpg"><p id="label">SCISSORS</p></button>
-
-        </div>
-        </div>
     </div>
         
-    <script src="game.js"></script>
+    <script src="game.js" async defer></script>
     </body>
 </html>

@@ -1,30 +1,29 @@
+/*
+const choices = ["rock", "paper", "scissors"]
 
 function getComputerChoice(){
-    let index =  Math.floor(Math.random() * 3);
-    const cont = document.querySelector(".zombie");
-    const computerChoice = document.createElement("h4");
-   
-
+    const index =  Math.floor(Math.random() * 3 + 1);
+    return choices[index];
     switch(index){
         case 0:
         computerChoice.classList.add("computerChoice");
         computerChoice.textContent =  "rock";
         cont.appendChild(computerChoice);  
-        return "rock";
+        
 
         case 1:
         computerChoice.classList.add("computerChoice");
         computerChoice.textContent =  "paper";
         cont.appendChild(computerChoice);    
-        return "paper";  
+        
 
         case 2:
         computerChoice.classList.add("computerChoice");
         computerChoice.textContent =  "scissors";
         cont.appendChild(computerChoice);     
-        return "scissors"; 
-         
+      
     }
+    console.log(object);
    
 }
 const score = document.querySelector(".score");
@@ -72,18 +71,16 @@ function playRound(humanChoice, computerChoice){
 //score.textContent
 
 function playGame(){ //invokes function 5times
-    const score = document.querySelector(".score");
-    const scoretext = document.createElement("h4");
+    const score = document.getElementById("human-score");
    
-    scoretext.classList.add("scoretext");
-    scoretext.textContent = humanScore;
-    score.appendChild(scoretext);  
-   // for(let i=1; i<=5; i++)
-      //  console.log(`Round ${i}`);
+    for(let i=1; i<=5; i++){
         console.log(playRound());
+      //  console.log(`Round ${i}`);
         console.log(`Human choice: | score: ${humanScore}`);
         console.log(`Computer choice: | score: ${computerScore}`);
         console.log("========================");
+    }
+  
    // }
   winner();
 }
@@ -106,41 +103,65 @@ function winner(){
 playGame();
 
 
-
 const btnChoice = document.querySelectorAll("button");
 
-for(let indexx = 0; indexx< btnChoice.length;indexx++){
-btnChoice[indexx].addEventListener("click", pressBtns);
-function pressBtns(e) {
-    playRound();
+btnChoice.forEach((button)=> {
+    button.addEventListener("click", (e) => {
     let target = e.target;
     const cont = document.querySelector(".steve");
     const humanChoice = document.createElement("h4");
     humanChoice.classList.add("humanChoice");
-    const computerChoice = getComputerChoice();
-
 
     switch(target.id){
         case "rock":
         humanChoice.textContent = "rock";
         cont.appendChild(humanChoice);   
-        round = playRound("rock", computerChoice);
         return "rock";
         
         case "paper":
         humanChoice.textContent = "paper";
         cont.appendChild(humanChoice);   
-        round = playRound("paper", computerChoice);
         return "paper";
 
         case "scissors":
          humanChoice.textContent = "scissors";
         cont.appendChild(humanChoice);   
-        round = playRound("scissors", computerChoice);
         return "scissors";
   
     }
     console.log(round);
-} 
-}
 
+    })  
+})
+*/
+
+//dom
+const gameContainer = document.querySelector(".outer-container");
+const humanResult = document.querySelector(".steve img");
+const zombieResult = document.querySelector(".zombie img")
+const result = document.querySelector(".result");
+
+const optionChoices = document.querySelectorAll(".image");
+
+console.log(gameContainer, humanResult, zombieResult, result, optionChoices);
+
+
+//loop thru image options then popp up if active click
+optionChoices.forEach((image1, index1) => {
+    image1.addEventListener("click", (e) =>{
+        image1.classList.add("active");
+
+        optionChoices.forEach((image2, index2) => {
+            //if current index dont match clicked index
+            index1 !== index2 && image2.classList.remove("active");
+        });
+
+        //select image
+        let imgSrc = e.target.src;
+        //changes steve to what the human click
+        humanResult.src = imgSrc;
+        
+
+
+    });
+});
