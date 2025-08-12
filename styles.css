@@ -53,9 +53,11 @@ button {
   cursor: pointer;
 
 }
+
 button:hover {
   background-color:#C28340;
 }
+  
 #scissors{
 padding: 30px 30px;
 }
