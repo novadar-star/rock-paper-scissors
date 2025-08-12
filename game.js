@@ -156,10 +156,14 @@ optionChoices.forEach((image1, index1) => {
             index1 !== index2 && image2.classList.remove("active");
         });
 
-        //select image
+        //select image that human click
         let imgSrc = e.target.src;
         //changes steve to what the human click
         humanResult.src = imgSrc;
+
+        let index = Math.floor(Math.random() * 3);
+        const zombieImg = ["rock.jpg", "paper.jpg", "scissors.jpg"]
+        zombieResult.src = zombieImg[index];
         
 
 
