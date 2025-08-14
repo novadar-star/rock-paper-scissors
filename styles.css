@@ -78,10 +78,9 @@ img {
   border-radius: 10px;
 
 }
-#zombie{
+#zombie img{
   width: 100px;
-  height: 100px;
-  border-radius: 10px;
+  height: 900px;
 
 }
 
@@ -90,3 +89,6 @@ img {
   padding: 0;
 }
 
+.icon {
+  border: 1px brown solid;
+}
