@@ -14,26 +14,27 @@
     <div class="outer-container">
         <div class ="icon">       
            <div class="steve">
-                <h3 id="human-score">SCORE: </h3>
+               <h3>👤 </h3><h3 id="human-score"> </h3></h3>
                 <h3>STEVE</h3>
                 <img src = "steve.jpg">
            </div>
 
             <div class="zombie">
-                <h3 id="zombie-score">SCORE: </h3>
+               <h3>🧟 <h3 id="zombie-score"></h3></h3> 
                 <h3>ZOMBIE</h3>
                 <img src = "zombie.jpg">
             </div>
         </div>
-         <div class="result">Description</div>
-         <div class="finalresult">Winner</div>
+         <div class="result"></div>
+         <div class="finalResult"></div>
 
         <div class="container">
             <button class="image" id="rock" onclick= "playRound(getHumanChoice('rock'), getComputerChoice())" > 
                 <img src="rock.jpg">
                 <p id="label">ROCK</p>
             </button>
-       
+        <!-- solution so human and computer will randomize at the same time-->
+
             <button class="image" id="paper" onclick= "playRound(getHumanChoice('paper'), getComputerChoice())" > 
                 <img src="paper.jpg">
                 <p id="label">PAPER</p>

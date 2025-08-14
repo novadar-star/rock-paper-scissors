@@ -1,46 +1,24 @@
 const zombieResult =  document.querySelector(".zombie img")
-
-const result = document.querySelector(".result");
-
+const humanResult = document.querySelector(".steve img")
 const Img = ["rock.jpg", "paper.jpg", "scissors.jpg"]
-/*
-function getHumanChoice(){
-    let humanResult = document.querySelector(".steve img")
-    const buttons = document.querySelectorAll("button")
-    let input ="";
-           
-    buttons.forEach((button) => {
-        button.addEventListener("click", ()=> {
-             
-            switch(button.id){
-                case "rock":
-                    humanResult.src = Img[0];
-                    input = "rock";
-                    break;
-                case "paper":
-                    humanResult.src =Img[1];
-                    input = "paper";
-                    break;
-                case "scissor":
-                    humanResult.src =Img[2];
-                    input = "scissors";
-                    break;
-                default:
-                    break;
+let humanScore=0;
+let zombieScore = 0;
+let result = " ";
+let finalResult = "";
 
-            }
-            console.log("HUMAN: " + input);
-            return humanResult, input;
-
-        })
-    })
-}
-
-*/
 function getHumanChoice(image) {
-  humanChoice = image;
-  alert(humanChoice)
-  return humanChoice;
+  humanChoice = image; //this is the class of the human
+  switch(humanChoice){
+    case "rock":
+        humanResult.src = Img[0];
+        return "rock";
+    case "paper":
+         humanResult.src = Img[1];
+        return "paper";
+    case "scissors":
+        humanResult.src = Img[2];
+        return "scissors"
+  }
 }
 
 function getComputerChoice(){
@@ -58,70 +36,50 @@ function getComputerChoice(){
     }
     
 }
-
-  
-//computer choice gets to decide before human so human returns undefined
-let humanScore=0;
-let zombieScore = 0;
-
-
 function playRound(humanChoice, computerChoice){
     if(humanChoice === "rock" && computerChoice === "scissors" || 
         humanChoice === "paper" && computerChoice === "rock" ||
         humanChoice === "scissors" && computerChoice ==="paper" ){
-       
-        result = "You win!";
-         humanScore++;
+        result = `You won! ${humanChoice} beats ${computerChoice}`;
+        humanScore++;
     }
-    else if(computerChoice === "rock" && humanChoice === "scissors" ||
+    if(computerChoice === "rock" && humanChoice === "scissors" ||
     computerChoice === "paper" && humanChoice === "rock" ||
     computerChoice === "scissors" && humanChoice === "paper"){
      
-        result= "You lost!";
-           computerScore++;
+        result= `You lost! ${computerChoice} beats ${humanChoice}`;
+        zombieScore++;
     }
-    else { //if all are tie
-          result= "You win!";
+    if(computerChoice === "rock" && humanChoice === "rock" ||
+    computerChoice === "paper" && humanChoice === "paper" ||
+    computerChoice === "scissors" && humanChoice === "scissors"){
+        result = "Its a tie!";
     }
-    document.getElementById("zombie-score").innerHTML = humanScore;
-    document.getElementById("human-score").innerHTML = zombieScore;
-    document.querySelector(".result").innerHTML = result
-    //alert("RESULT: " + result); //not outputting wtf
-    //return computerScore, humanScore;
+    
+    document.getElementById("zombie-score").innerHTML = zombieScore;
+    document.getElementById("human-score").innerHTML = humanScore;
+    document.querySelector(".result").textContent = result;
    
 }
-playRound();
 
-/*
-function playGame(){ //invokes function 5times
-    let resulttext = document.querySelector(".result");
-    for(let i=1; i<=5; i++){
-
-        console.log(`Round ${i}`);
-        console.log(playRound());
-        console.log(`Human choice: ${humanChoice} | score: ${humanScore}`);
-        console.log(`Computer choice: ${computerChoice} | score: ${computerScore}`);
-        resulttext.textContent = (`${result}`);
-    
+//goes for unlimited round
+function playGame(){
+    for(let i=0; i<=5; i++){
+       // playRound(humanChoice, computerChoice)
     }
-  winner();
+    winner();
 }
- 
-    
-
-function winner(){
-    let finalresult = document.querySelector(".finalresult")
-
-         if(humanScore === computerScore){
-            finalresult.textContent = "HUMAN AND COMPUTER TIE!";
-        }
-        else if(humanScore > computerScore){
-             finalresult.textContent = "HUMAN WON!";
-        }
-        else{   
-            finalresult.textContent = "COMPUTER WON!";
-        }
-}
-
 playGame();
- */
+ //cant display
+function winner(){
+         if(zombieScore === 5){
+            finalResult = `ZOMBIE WON`;
+         }
+         else if (humanScore === 5){
+            finalResult = `HUMAN WON`;
+         }  
+      
+         
+        document.querySelector(".finalResult").textContent= finalResult;
+}
+
