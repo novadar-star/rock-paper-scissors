@@ -29,17 +29,17 @@
          <div class="finalresult">Winner</div>
 
         <div class="container">
-            <button class="image" id="rock" onclick = "getComputerChoice()"  > 
+            <button class="image" id="rock" onclick= "playRound(getHumanChoice('rock'), getComputerChoice())" > 
                 <img src="rock.jpg">
                 <p id="label">ROCK</p>
             </button>
        
-            <button class="image" id="paper"  onclick = "getComputerChoice()" > 
+            <button class="image" id="paper" onclick= "playRound(getHumanChoice('paper'), getComputerChoice())" > 
                 <img src="paper.jpg">
                 <p id="label">PAPER</p>
             </button>
      
-            <button class="image" id="scissor" onclick = "getComputerChoice()" >
+            <button class="image" id="scissor" onclick= "playRound(getHumanChoice('scissors'), getComputerChoice())" >
                  <img src="scissors.jpg">
                  <p id="label">SCISSORS</p>
                 </button>

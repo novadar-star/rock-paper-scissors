@@ -1,10 +1,9 @@
-//WHY THE FUCK IS ZOBIE RETURNING EVEN IF I DONT CCALL THE FUNCITON
+const zombieResult =  document.querySelector(".zombie img")
 
-//if i dont putonclick ="getcomputerchoice" on buttons html, zombi img doesnt change and di nagrereturn
-//assign zombie container to the random
+const result = document.querySelector(".result");
+
 const Img = ["rock.jpg", "paper.jpg", "scissors.jpg"]
-
-
+/*
 function getHumanChoice(){
     let humanResult = document.querySelector(".steve img")
     const buttons = document.querySelectorAll("button")
@@ -37,60 +36,58 @@ function getHumanChoice(){
     })
 }
 
+*/
+function getHumanChoice(image) {
+  humanChoice = image;
+  alert(humanChoice)
+  return humanChoice;
+}
 
 function getComputerChoice(){
     let index =  Math.floor(Math.random() * 3);
-    let zombieResult =  document.querySelector(".zombie img")
-    let weapon = "";
-
     switch(index){
         case 0:
-            zombieResult.src = Img[0];
-            weapon = "rock";
-            break;
+             zombieResult.src = Img[0];
+            return "rock";
         case 1:
-            zombieResult.src = Img[1];
-            weapon = "paper";
-            break;
+             zombieResult.src = Img[1];
+            return "paper"
         case 2:
              zombieResult.src = Img[2];
-            weapon = "scissors";
-            break;
-        default:
-            break;
+            return "scissors";
     }
-    console.log("ZOMBIE: " + weapon);
-    return zombieResult, weapon;
+    
 }
 
   
 //computer choice gets to decide before human so human returns undefined
 let humanScore=0;
-let computerScore = 0;
+let zombieScore = 0;
 
 
-function playRound(){
-    humanChoice = getHumanChoice();
-    computerChoice = getComputerChoice();
-     let result = "";
+function playRound(humanChoice, computerChoice){
     if(humanChoice === "rock" && computerChoice === "scissors" || 
         humanChoice === "paper" && computerChoice === "rock" ||
         humanChoice === "scissors" && computerChoice ==="paper" ){
-        humanScore++;
-        result= (`You win this round ${humanChoice} beats ${computerChoice}`);
+       
+        result = "You win!";
+         humanScore++;
     }
-    // rock
     else if(computerChoice === "rock" && humanChoice === "scissors" ||
     computerChoice === "paper" && humanChoice === "rock" ||
     computerChoice === "scissors" && humanChoice === "paper"){
-        computerScore++;
-        result= (`You lost this round ${computerChoice} beats ${humanChoice} `);
+     
+        result= "You lost!";
+           computerScore++;
     }
     else { //if all are tie
-         result =  "tie!";
+          result= "You win!";
     }
-    alert("RESULT: " + result); //not outputting wtf
-    return computerScore, humanScore;
+    document.getElementById("zombie-score").innerHTML = humanScore;
+    document.getElementById("human-score").innerHTML = zombieScore;
+    document.querySelector(".result").innerHTML = result
+    //alert("RESULT: " + result); //not outputting wtf
+    //return computerScore, humanScore;
    
 }
 playRound();
