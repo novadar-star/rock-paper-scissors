@@ -1,114 +1,137 @@
 
-const gameContainer = document.querySelector(".outer-container");
-const humanResult = document.querySelector(".steve img");
-const zombieResult = document.querySelector(".zombie img")
-const result = document.querySelector(".result");
 
-const optionChoices = document.querySelectorAll(".image");
+//assign zombie container to the random
+function getComputerChoice(){
+    let index =  Math.floor(Math.random() * 3);
+    let zombieResult =  document.querySelector(".zombie img")
+    const zombieImg = ["rock.jpg", "paper.jpg", "scissors.jpg"]
+  
+    let weapon = "";
 
-
-//loop thru image options then popp up if active click
-optionChoices.forEach((image1, index1) => {
-    image1.addEventListener("click", (e) => {
-        image1.classList.add("active");
-        //LOOPS through all the 3 choices 
-        optionChoices.forEach((image2, index2) => {
-            //if current index dont match clicked index
-            index1 !== index2 && image2.classList.remove("active");
-        });
-
-        //select image that human click
-        let imgSrc = e.target.src;
-        //changes steve to what the human click
-        humanResult.src = imgSrc;
-
-        //randomnly choosing from 3
-        let zombieIndex = Math.floor(Math.random() * 3);
-        const zombieImg = ["rock.jpg", "paper.jpg", "scissors.jpg"]
-        zombieResult.src = zombieImg[zombieIndex];
-        //access zombiechoice as string
-        let zombie = ["rock", "paper", "scissors"][zombieIndex];
-        
-        //acces human
-        let human = ["rock", "paper", "scissors"][index1];
-        const desc = document.querySelector(".result");
-
-        let humanScore = 0;
-        let zombieScore = 0;
-        const hscore = document.querySelector("#human-score")
-        const zscore = document.querySelector("#zombie-score")
-
-    
-            
-        function play() {
-            //parallel to options so
-            if(human === "rock" && zombie === "scissors"){
-            humanScore++;
-            return "U WIN rock beats scissors"; 
-            }
-            else if(human === "paper" && zombie  === "rock"){ 
-            humanScore++;
-            return "U WIN paper beats rock";
+    switch(index){
+        case 0:
+            zombieResult.src = zombieImg[0];
+            weapon = "rock";
+            break;
+        case 1:
+             zombieResult.src = zombieImg[1];
+            weapon = "paper";
+            break;
+        case 2:
+             zombieResult.src = zombieImg[2];
+            weapon = "scissors";
+            break;
+        default:
+            break;
     }
-    else if(human === "scissors" && zombie  ==="paper" ){
+    console.log("Zombie: " + weapon);
+    return zombieResult, weapon;
+}
+
+function getHumanChoice(){
+    let humanResult = document.querySelector(".steve img")
+    const humanImg = ["rock.jpg", "paper.jpg", "scissors.jpg"]
+    
+    const buttons = document.querySelectorAll("button")
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", ()=> {
+            let input ="";
+            switch(button.id){
+                case "rock":
+                    humanResult.src = humanImg[0];
+                    input = "rock";
+                    break;
+                case "paper":
+                    humanResult.src = humanImg[1];
+                    input = "paper";
+                    break;
+                case "scissor":
+                    humanResult.src = humanImg[2];
+                    input = "scissors";
+                    break;
+                default:
+                    break;
+
+            }
+            console.log("Human: " + input);
+            return humanResult, input;
+        })
+    })
+
+
+}
+
+//computer choice gets to decide before human so human returns undefined
+ let humanScore=0;
+  let computerScore = 0;
+function playRound(){
+   humanChoice = getHumanChoice();
+
+    if(humanChoice === "rock" && computerChoice === "scissors"){
+       //not displaying   
+        humanScore++;
+        return "U WIN rock beats scissors"; 
+     }
+    else if(humanChoice === "paper" && computerChoice === "rock"){
+       
+        humanScore++;
+         return "U WIN paper beats rock";
+    }
+    else if(humanChoice === "scissors" && computerChoice ==="paper" ){
         humanScore++;
           return "U WIN scissors beats paper";
     }
     // rock
-    else if(zombie  === "rock" && human=== "scissors"){
+    else if(computerChoice === "rock" && humanChoice === "scissors"){
      
         computerScore++;
           return "U LOSE rock beats scissors";
     }
-    else if(zombie === "paper" && human=== "rock"){
+    else if(computerChoice === "paper" && humanChoice === "rock"){
     
-        zombieScore++;
+        computerScore++;
           return "U LOSE paper beats rock";
     }
-    else if (zombie === "scissors" && human === "paper"){
+    else if (computerChoice === "scissors" && humanChoice === "paper"){
    
-        zombieScore++;
+        computerScore++;
          return "U LOSE scissors beats paper";
     }
     else { //if all are tie
-        zombieScore++;
+        computerScore++;
         humanScore++;
         return "tie!";
     }
    
-}       
+}
+   
 
-       play();
+function playGame(){ //invokes function 5times
+    for(let i=1; i<=5; i++){
+
+        console.log(`Round 1: ${i}`);
+        console.log(playRound());
+        console.log(`Human choice: ${humanChoice} | score: ${humanScore}`);
+        console.log(`Computer choice: ${computerChoice} | score: ${computerScore}`);
+    }
+  winner();
+}
+ 
     
 
-       //let round = document.querySelector("#round");
-      
-        function playGame(){
-            for(let i=1; i<=5; i++){
-           // round.textContent = r;
-                    console.log(`Round 1: ${i}`);
-        console.log(play());
-        console.log(`Human choice: ${human} | score: ${humanScore}`);
-        console.log(`Computer choice: ${zombie} | score: ${zombieScore}`);
-     
-        }
-        winner();
-        }
-
-        function winner(){
-         if(humanScore === zombieScore){
+function winner(){
+         if(humanScore === computerScore){
             console.log("HUMAN AND COMPUTER TIE!");
         }
-        else if(humanScore > zombieScore){
+        else if(humanScore > computerScore){
             console.log("HUMAN WON!");
         }
         else{
             console.log("COMPUTER WON!");
         }
-        playGame();
-    }
-     
-    });
-});
+}
 
+playGame();
 
+ 
