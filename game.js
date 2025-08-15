@@ -1,6 +1,6 @@
 const zombieResult =  document.querySelector(".zombie img")
 const humanResult = document.querySelector(".steve img")
-const Img = ["rock.jpg", "paper.jpg", "scissors.jpg"]
+const Img = ["./img/rock.png", "./img/paper.png", "./img/scissors.png"]
 let humanScore=0;
 let zombieScore = 0;
 let result = " ";
@@ -65,7 +65,7 @@ function playRound(humanChoice, computerChoice){
 //goes for unlimited round
 function playGame(){
     for(let i=0; i<=5; i++){
-       // playRound(humanChoice, computerChoice)
+        playRound(humanChoice, computerChoice)
     }
     winner();
 }
