@@ -3,8 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content= "width=device-width, initial-scale=1.0"/>
-          <link rel="icon" type="favicon.png" href="favicon.png">
+        <link rel="icon" type="favicon.png" href="favicon.png">
+       
         <link rel="stylesheet" href="styles.css">
+         
+
         <title>Rock Paper and Scissors</title>
         <h2>ROCK PAPER AND SCISSORS</h2>
         <p id="round">Pick a choice!</p>
@@ -14,15 +17,15 @@
     <div class="outer-container">
         <div class ="icon">       
            <div class="steve">
-               <h3>👤 </h3><span id="human-score"> </span></h3>
+               <h3>👤<span id="human-score"> </span></h3>
                 <h3>STEVE</h3>
-                <img src = "steve.jpg">
+                <img src = "steve.jpg" style="height:80px; width:auto;">
            </div>
 
             <div class="zombie">
                <h3>🧟 <span id="zombie-score"></span></h3> 
                 <h3>ZOMBIE</h3>
-                <img src = "zombie.jpg" style="height:80px">
+                <img src = "zombie.jpg" style="height:80px; width:auto;">
             </div>
         </div>
          <div class="result"></div>
@@ -30,7 +33,7 @@
 
         <div class="container">
             <button class="image" id="rock" onclick= "playRound(getHumanChoice('rock'), getComputerChoice())" > 
-                <img src="rock.jpg">
+                <img src="rock.jpg"  >
                 <p id="label">ROCK</p>
             </button>
         <!-- solution so human and computer will randomize at the same time-->

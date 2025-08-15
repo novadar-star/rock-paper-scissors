@@ -2,12 +2,21 @@
     box-sizing:border-box;
 }
 
-@font-face {
-  font-family: "Minecraft-Ten";
-  src: url(MinecraftTen-VGORe.ttf);
+img {
+background-size: 0 !important;
+
+}
+.metal-mania-regular {
+  font-family: "Metal Mania", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+head, body, p {
+    font-family: "Metal Mania", system-ui;
+
 }
 body {
-      background-color: #8FCA5C;
+      background-color: #119b84;
       text-align: center;
       min-height:100vh;
        overflow: hidden;
@@ -15,31 +24,40 @@ body {
 }
 
 h2 {
-
-  color: #61371F;
+  text-shadow: 2px 2px #ac2020;
+  color: #511515;
   text-align: center;
-  font-size: 30px;
+  font-size: 45px;
   display: flex;
   justify-content: center;
+  margin-bottom: 0;
+}
+#round {
+  margin-top: 10px;
+}
+
+h3 { 
+  color: #511515;
 }
 
 p {
-  font-weight: 600;
+  font-weight: bolder;
   font-size: 25px;  
+  color: #ac2020;
 }
 .outer-container {
   margin: 0 200px;
   width: 1000px;
   height: 600px;
   padding: 0 0;
-  border-radius: 10px;
+  border-radius: 20px;
   
 
 }
 .container {
   display: flex;
   justify-content: center;
-  margin: 90px;
+  margin: 40px;
   gap: 3em;
   overflow: hidden;
 }
@@ -47,14 +65,14 @@ p {
 button {
   padding: 10px;
   border-radius: 10px;
-  background-color: rgb(243, 221, 192);
+  background-color:#fe8738;
   border:1px solid black;
   cursor: pointer;
 
 }
 
 button:hover {
-  background-color:#C28340;
+  background-color:#119b84;
 }
   
 #scissors{
@@ -90,6 +108,17 @@ img {
 }
 
 .icon {
+  display: flex;
+  align-content: center;
   border: 1px brown solid;
-  padding-bottom:50px;
+  padding-bottom:30px;
+  border-radius: 10px;
+  background-color: #fe8738;
+}
+
+.result {
+  margin:20px;
+  color:#ac2020;
+  font-weight: bolder;
+  font-size: larger;
 }
